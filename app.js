@@ -1,12 +1,13 @@
+let listasNumerosSorteados = [];
+let numeroLimite = 10;
+let numeroSecreto = gerarNumeroAleatorio();
+let tentativas = 1;
+
 // let titulo = document.querySelector("h1");
 // titulo.innerHTML = "Jogo do número secreto";
 
 // let paragrafo = document.querySelector("p");
 // paragrafo.innerHTML = "Escolha um número entre 1 a 10";
-let listasNumerosSorteados = [];
-let numeroLimite = 10;
-let numeroSecreto = gerarNumeroAleatorio();
-let tentativas = 1;
 function exibirTextoNaTela(tag, texto){
     let campo = document.querySelector(tag);
     campo.innerHTML = texto;
@@ -31,6 +32,10 @@ function verificarChute(){
         exibirTextoNaTela("p", mensagemTentativas);
         document.getElementById("reiniciar").removeAttribute("disabled");
 
+    }
+    else if(chute.trim() == ""){
+        exibirTextoNaTela("p", "Digite um número para descobrir.");
+        
     }
     else{
         if(chute > numeroSecreto){
